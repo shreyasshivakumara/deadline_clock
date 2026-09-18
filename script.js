@@ -659,7 +659,7 @@ function render() {
   emptyState.hidden = items.length > 0;
   if (!items.length) {
     const title = state.search ? `Add conference: ${state.search}` : "Add a conference";
-    requestConference.href = `https://github.com/shreyasshivakumara/deadline_clock/issues/new?template=add-conference.yml&title=${encodeURIComponent(title)}`;
+    requestConference.href = `https://github.com/shreyasshivakumara/deadline_clock/issues/new?template=add-conference.md&title=${encodeURIComponent(title)}`;
     requestConference.hidden = !state.search;
   }
 }
