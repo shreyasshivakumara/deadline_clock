@@ -659,7 +659,8 @@ function render() {
   emptyState.hidden = items.length > 0;
   if (!items.length) {
     const title = state.search ? `Add conference: ${state.search}` : "Add a conference";
-    requestConference.href = `https://github.com/shreyasshivakumara/deadline_clock/issues/new?template=add-conference.md&title=${encodeURIComponent(title)}`;
+    const body = "## Official conference page\n\nhttps://";
+    requestConference.href = `https://github.com/shreyasshivakumara/deadline_clock/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
     requestConference.hidden = !state.search;
   }
 }
