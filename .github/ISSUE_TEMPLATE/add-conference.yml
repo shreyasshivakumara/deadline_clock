@@ -5,7 +5,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for suggesting a venue. Please provide an official source so its dates can be verified before publication.
+        Thanks for suggesting a venue for the next Deadline Clock update.
+
+        Please link to the official conference website and, when available, the
+        exact call-for-papers or important-dates page. Direct source links make
+        verification faster and prevent incorrect deadlines from being published.
+        Aggregator pages may be included as context, but they do not replace an
+        official source.
 
   - type: input
     id: acronym
@@ -39,7 +45,7 @@ body:
     id: official-url
     attributes:
       label: Official conference page
-      description: Use the organizer, society, or official conference website rather than a deadline aggregator.
+      description: Link to the conference, organizer, or society website. Do not use an aggregator as the primary source.
       placeholder: "https://conference.example.org/2027/"
     validations:
       required: true
@@ -48,6 +54,7 @@ body:
     id: cfp-url
     attributes:
       label: Official call-for-papers or dates page
+      description: A direct link to the exact page containing submission dates makes verification much faster.
       placeholder: "https://conference.example.org/2027/call-for-papers"
     validations:
       required: false

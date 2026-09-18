@@ -83,8 +83,9 @@ The Pages workflow deploys the update automatically.
 Visitors can also search the dashboard first and use **Request this conference**
 when no matching venue exists. That action opens the structured
 `.github/ISSUE_TEMPLATE/add-conference.yml` form with the searched name already
-in the issue title. A maintainer must verify the official source before adding
-the entry to `script.js`.
+in the issue title. The form asks for both the official conference homepage and
+the exact call-for-papers or important-dates link. A maintainer must verify those
+sources before adding the venue in the next catalog update.
 
 ## Check venue sources manually
 
