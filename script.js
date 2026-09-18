@@ -569,6 +569,7 @@ const state = {
 
 const grid = document.querySelector("#deadline-grid");
 const emptyState = document.querySelector("#empty-state");
+const requestConference = document.querySelector("#request-conference");
 const resultCount = document.querySelector("#result-count");
 
 function remaining(deadline) {
@@ -656,6 +657,11 @@ function render() {
   grid.innerHTML = items.map(cardMarkup).join("");
   resultCount.textContent = `${items.length} ${items.length === 1 ? "entry" : "entries"}`;
   emptyState.hidden = items.length > 0;
+  if (!items.length) {
+    const title = state.search ? `Add conference: ${state.search}` : "Add a conference";
+    requestConference.href = `https://github.com/shreyasshivakumara/deadline_clock/issues/new?template=add-conference.yml&title=${encodeURIComponent(title)}`;
+    requestConference.hidden = !state.search;
+  }
 }
 
 function updateCountdowns() {

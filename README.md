@@ -80,6 +80,12 @@ git push origin main
 
 The Pages workflow deploys the update automatically.
 
+Visitors can also search the dashboard first and use **Request this conference**
+when no matching venue exists. That action opens the structured
+`.github/ISSUE_TEMPLATE/add-conference.yml` form with the searched name already
+in the issue title. A maintainer must verify the official source before adding
+the entry to `script.js`.
+
 ## Check venue sources manually
 
 ```bash

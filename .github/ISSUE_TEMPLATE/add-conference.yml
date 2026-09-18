@@ -1,0 +1,78 @@
+name: Add a conference
+description: Request a conference for inclusion in Deadline Clock
+title: "Add conference: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a venue. Please provide an official source so its dates can be verified before publication.
+
+  - type: input
+    id: acronym
+    attributes:
+      label: Conference acronym
+      placeholder: "Example: SIGGRAPH"
+    validations:
+      required: true
+
+  - type: input
+    id: full-name
+    attributes:
+      label: Full conference name
+      placeholder: "Example: ACM SIGGRAPH Conference"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Primary category
+      options:
+        - Computer Graphics
+        - Vision
+        - XR + HCI
+        - Visualization
+    validations:
+      required: true
+
+  - type: input
+    id: official-url
+    attributes:
+      label: Official conference page
+      description: Use the organizer, society, or official conference website rather than a deadline aggregator.
+      placeholder: "https://conference.example.org/2027/"
+    validations:
+      required: true
+
+  - type: input
+    id: cfp-url
+    attributes:
+      label: Official call-for-papers or dates page
+      placeholder: "https://conference.example.org/2027/call-for-papers"
+    validations:
+      required: false
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Published deadline
+      description: Include the date, exact time, and timezone when available.
+      placeholder: "November 16, 2026, 23:59 AoE"
+    validations:
+      required: false
+
+  - type: input
+    id: event
+    attributes:
+      label: Event dates and location
+      placeholder: "June 20-24, 2027 — Seattle, USA"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: Explain why the venue belongs in this tracker or note any uncertainty.
+    validations:
+      required: false

@@ -66,7 +66,12 @@
     </section>
 
     <section class="deadline-grid" id="deadline-grid" aria-live="polite"></section>
-    <p class="empty-state" id="empty-state" hidden>No conferences match these filters.</p>
+    <div class="empty-state" id="empty-state" hidden>
+      <div class="empty-icon" aria-hidden="true">?</div>
+      <h2>Conference not found</h2>
+      <p>Request it for review. Please include an official conference or call-for-papers page so its details can be verified.</p>
+      <a id="request-conference" href="https://github.com/shreyasshivakumara/deadline_clock/issues/new?template=add-conference.yml" target="_blank" rel="noopener noreferrer">Request this conference ↗</a>
+    </div>
 
   </main>
 
