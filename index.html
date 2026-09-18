@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Live deadlines for computer graphics, vision, visualization, and XR conferences in 2027.">
+  <title>Deadline Clock | 2027 Conference Deadlines</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="clock-nav">
+    <a class="clock-brand" href="./">
+      <span class="brand-shape"><i></i><i></i><i></i></span>
+      <span><strong>Deadline Clock</strong><small>Conference deadlines</small></span>
+    </a>
+    <button id="theme-toggle" type="button" aria-label="Toggle color theme">◐</button>
+  </header>
+
+  <main>
+    <section class="masthead">
+      <div class="edition">
+        <span>VOL. I · CONFERENCE EDITION</span>
+        <span class="live"><i></i> TICKING LIVE</span>
+        <time id="utc-clock">Loading UTC...</time>
+      </div>
+      <div class="masthead-grid">
+        <div>
+          <p class="kicker">Plan the paper before the deadline plans it for you.</p>
+          <h1>Deadline<br><em>Clock.</em></h1>
+        </div>
+        <div class="masthead-copy">
+          <p>Live countdowns for computer graphics, rendering, geometry, visualization, XR, and graphics-adjacent vision conferences in 2027.</p>
+          <p class="source-note"><strong>Data checked September 18, 2026.</strong> Confirmed dates come from official conference pages. Estimates are visibly marked and should never replace the official call.</p>
+        </div>
+      </div>
+      <div class="topic-marquee" aria-label="Topics covered">
+        <span>Rendering</span><i>·</i><span>Geometry</span><i>·</i><span>Animation</span><i>·</i><span>Visualization</span><i>·</i><span>XR</span><i>·</i><span>3D Vision</span><i>·</i><span>Graphics Systems</span>
+      </div>
+    </section>
+
+    <section class="next-up" id="next-up" aria-live="polite"></section>
+
+    <section class="controls" aria-label="Conference filters">
+      <label class="deadline-search">
+        <span>SEARCH</span>
+        <input id="conference-search" type="search" placeholder="Conference, topic, or location...">
+      </label>
+      <div class="filter-row" id="category-filters">
+        <button class="selected" type="button" data-filter="all">All</button>
+        <button type="button" data-filter="graphics">Core graphics</button>
+        <button type="button" data-filter="vision">Vision + 3D</button>
+        <button type="button" data-filter="xr">XR + HCI</button>
+        <button type="button" data-filter="visualization">Visualization</button>
+        <button type="button" data-filter="geometry">Geometry + animation</button>
+      </div>
+      <div class="control-meta">
+        <label><input id="show-tba" type="checkbox" checked> Show TBA</label>
+        <label><input id="show-estimated" type="checkbox" checked> Show estimates</label>
+        <label><input id="show-passed" type="checkbox"> Show passed</label>
+        <label><input id="acm-only" type="checkbox"> ACM only</label>
+        <label>Sort
+          <select id="sort-select">
+            <option value="deadline">deadline ↑</option>
+            <option value="name">name A-Z</option>
+            <option value="status">confirmed first</option>
+          </select>
+        </label>
+        <strong id="result-count">0 venues</strong>
+      </div>
+    </section>
+
+    <section class="legend" aria-label="Deadline status legend">
+      <span><i class="confirmed-dot"></i><strong>Confirmed</strong> official date published</span>
+      <span><i class="estimated-dot"></i><strong>Estimated</strong> planning aid based on available schedule information</span>
+      <span><i class="tba-dot"></i><strong>TBA</strong> no verified paper deadline yet</span>
+    </section>
+
+    <section class="deadline-grid" id="deadline-grid" aria-live="polite"></section>
+    <p class="empty-state" id="empty-state" hidden>No conferences match these filters.</p>
+
+  </main>
+
+  <footer>
+    <div><strong>Deadline Clock</strong><p>Built for research planning. Not affiliated with listed conferences.</p></div>
+    <p>Always verify against the official CFP before submitting.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

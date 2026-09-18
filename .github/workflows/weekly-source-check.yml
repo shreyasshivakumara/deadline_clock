@@ -1,0 +1,60 @@
+name: Weekly source check
+
+on:
+  schedule:
+    - cron: "17 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-deadline-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Restore previous source fingerprints
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/deadline-clock/source-state.json
+          key: deadline-clock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            deadline-clock-${{ runner.os }}-
+
+      - name: Check conference source pages
+        id: check
+        run: |
+          python3 check_updates.py \
+            --state .cache/deadline-clock/source-state.json \
+            --report deadline-check-report.md \
+            --github-output "$GITHUB_OUTPUT"
+          cat deadline-check-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload weekly report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deadline-clock-report-${{ github.run_number }}
+          path: deadline-check-report.md
+          retention-days: 30
+
+      - name: Open review issue when sources change
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Deadline Clock: ${{ steps.check.outputs.changed_count }} source page(s) changed" \
+            --body-file deadline-check-report.md
+
+      - name: Save current source fingerprints
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/deadline-clock/source-state.json
+          key: deadline-clock-${{ runner.os }}-${{ github.run_id }}
