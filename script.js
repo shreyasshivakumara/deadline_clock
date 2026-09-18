@@ -4,15 +4,15 @@ const conferences = [
     fullName: "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
     category: "vision",
     field: "Computer vision",
-    tags: ["CV", "3D", "A*"],
-    deadline: "2026-11-13T07:59:00Z",
+    tags: ["IEEE", "CV", "3D", "A*"],
+    deadline: "2026-11-17T11:59:00Z",
     deadlineLabel: "Full paper",
-    deadlineDisplay: "Nov 12, 2026 · 11:59 PM Pacific",
-    timezone: "Pacific Time",
+    deadlineDisplay: "Nov 16, 2026 · 11:59 PM AoE",
+    timezone: "AoE (UTC-12)",
     event: "June 20-24, 2027",
     location: "Seattle, Washington, USA",
-    status: "estimated",
-    url: "https://cvpr.thecvf.com/"
+    status: "confirmed",
+    url: "https://cvpr.thecvf.com/Conferences/2027/Dates"
   },
   {
     name: "SIGGRAPH 2027",
@@ -34,7 +34,7 @@ const conferences = [
     fullName: "IEEE/CVF International Conference on Computer Vision",
     category: "vision",
     field: "Computer vision",
-    tags: ["CV", "3D", "A*"],
+    tags: ["IEEE", "CV", "3D", "A*"],
     deadline: "2027-03-06T07:59:00Z",
     deadlineLabel: "Full paper",
     deadlineDisplay: "Mar 5, 2027 · 11:59 PM Pacific",
@@ -79,7 +79,7 @@ const conferences = [
     fullName: "IEEE Conference on Virtual Reality and 3D User Interfaces",
     category: "xr",
     field: "Virtual + augmented reality",
-    tags: ["VR", "HCI"],
+    tags: ["IEEE", "VR", "HCI"],
     deadline: null,
     deadlineLabel: "Journal / conference paper",
     deadlineDisplay: "Not announced",
@@ -137,7 +137,7 @@ const conferences = [
   {
     name: "SGP 2027",
     fullName: "Symposium on Geometry Processing",
-    category: "geometry",
+    category: "graphics",
     field: "Geometry processing",
     tags: ["GEO", "GFX"],
     deadline: null,
@@ -214,7 +214,7 @@ const conferences = [
     fullName: "IEEE International Symposium on Mixed and Augmented Reality",
     category: "xr",
     field: "Mixed + augmented reality",
-    tags: ["XR", "HCI"],
+    tags: ["IEEE", "XR", "HCI"],
     deadline: null,
     deadlineLabel: "Journal / conference paper",
     deadlineDisplay: "Not announced",
@@ -229,7 +229,7 @@ const conferences = [
     fullName: "International Conference on 3D Vision",
     category: "vision",
     field: "3D vision + reconstruction",
-    tags: ["3D", "CV"],
+    tags: ["IEEE", "3D", "CV"],
     deadline: null,
     deadlineLabel: "Full paper",
     deadlineDisplay: "Not announced",
@@ -242,7 +242,7 @@ const conferences = [
   {
     name: "MIG 2027",
     fullName: "ACM SIGGRAPH Conference on Motion, Interaction and Games",
-    category: "geometry",
+    category: "graphics",
     field: "Animation + interaction",
     tags: ["ACM", "ANIM", "HCI"],
     deadline: null,
@@ -257,7 +257,7 @@ const conferences = [
   {
     name: "CASA 2027",
     fullName: "Computer Animation and Social Agents",
-    category: "geometry",
+    category: "graphics",
     field: "Computer animation",
     tags: ["ANIM", "GFX"],
     deadline: null,
@@ -377,7 +377,7 @@ const conferences = [
   {
     name: "SCA 2027",
     fullName: "ACM SIGGRAPH / Eurographics Symposium on Computer Animation",
-    category: "geometry",
+    category: "graphics",
     field: "Computer animation",
     tags: ["ACM", "ANIM"],
     deadline: null,
@@ -437,7 +437,7 @@ const conferences = [
   {
     name: "SCF 2027",
     fullName: "ACM Symposium on Computational Fabrication",
-    category: "geometry",
+    category: "graphics",
     field: "Computational fabrication",
     tags: ["ACM", "FAB"],
     deadline: null,
@@ -452,7 +452,7 @@ const conferences = [
   {
     name: "SPM 2027",
     fullName: "ACM Symposium on Solid and Physical Modeling",
-    category: "geometry",
+    category: "graphics",
     field: "Geometric modeling",
     tags: ["ACM", "GEO"],
     deadline: null,
@@ -523,6 +523,36 @@ const conferences = [
     location: "To be announced",
     status: "tba",
     url: "https://dl.acm.org/conference/mmsys"
+  },
+  {
+    name: "QoMEX 2027",
+    fullName: "International Conference on Quality of Multimedia Experience",
+    category: "vision",
+    field: "Multimedia quality + experience",
+    tags: ["IEEE", "MM", "QoE"],
+    deadline: null,
+    deadlineLabel: "Full paper",
+    deadlineDisplay: "Not announced",
+    timezone: "To be announced",
+    event: "Early summer 2027",
+    location: "Shanghai, China",
+    status: "tba",
+    url: "https://qomex.org/"
+  },
+  {
+    name: "BMVC 2027",
+    fullName: "British Machine Vision Conference",
+    category: "vision",
+    field: "Computer vision",
+    tags: ["CV", "BMVA"],
+    deadline: null,
+    deadlineLabel: "Full paper",
+    deadlineDisplay: "Not announced",
+    timezone: "To be announced",
+    event: "2027 dates not announced",
+    location: "To be announced",
+    status: "tba",
+    url: "https://www.bmva.org/bmvc"
   }
 ];
 
@@ -533,13 +563,13 @@ const state = {
   showEstimated: true,
   showPassed: false,
   acmOnly: false,
+  ieeeOnly: false,
   sort: "deadline"
 };
 
 const grid = document.querySelector("#deadline-grid");
 const emptyState = document.querySelector("#empty-state");
 const resultCount = document.querySelector("#result-count");
-const nextUp = document.querySelector("#next-up");
 
 function remaining(deadline) {
   if (!deadline) return null;
@@ -608,6 +638,7 @@ function filteredConferences() {
     .filter((item) => state.showEstimated || item.status !== "estimated")
     .filter((item) => state.showPassed || !item.deadline || new Date(item.deadline).getTime() > Date.now())
     .filter((item) => !state.acmOnly || item.tags.includes("ACM"))
+    .filter((item) => !state.ieeeOnly || item.tags.includes("IEEE"))
     .sort((a, b) => {
       if (state.sort === "name") return a.name.localeCompare(b.name);
       if (state.sort === "status") {
@@ -637,18 +668,6 @@ function updateCountdowns() {
     element.innerHTML = `<b>${value.days}</b>d : <b>${String(value.hours).padStart(2, "0")}</b>h : <b>${String(value.minutes).padStart(2, "0")}</b>m : <b>${String(value.seconds).padStart(2, "0")}</b>s`;
   });
 
-  const upcoming = conferences
-    .filter((item) => item.deadline && new Date(item.deadline).getTime() > Date.now())
-    .sort((a, b) => new Date(a.deadline) - new Date(b.deadline))[0];
-  if (!upcoming) {
-    nextUp.innerHTML = `<span class="next-label">Next up</span><span class="next-title">No published future deadlines in this edition.</span>`;
-    return;
-  }
-  const value = remaining(upcoming.deadline);
-  nextUp.innerHTML = `
-    <span class="next-label">Next up · ${upcoming.status}</span>
-    <span class="next-title"><strong>${upcoming.name}</strong> — ${upcoming.deadlineLabel}</span>
-    <span class="next-countdown"><b>${value.days}</b>d : <b>${String(value.hours).padStart(2, "0")}</b>h : <b>${String(value.minutes).padStart(2, "0")}</b>m : <b>${String(value.seconds).padStart(2, "0")}</b>s</span>`;
 }
 
 document.querySelector("#category-filters").addEventListener("click", (event) => {
@@ -675,6 +694,18 @@ document.querySelector("#show-passed").addEventListener("change", (event) => {
 });
 document.querySelector("#acm-only").addEventListener("change", (event) => {
   state.acmOnly = event.target.checked;
+  if (state.acmOnly) {
+    state.ieeeOnly = false;
+    document.querySelector("#ieee-only").checked = false;
+  }
+  render();
+});
+document.querySelector("#ieee-only").addEventListener("change", (event) => {
+  state.ieeeOnly = event.target.checked;
+  if (state.ieeeOnly) {
+    state.acmOnly = false;
+    document.querySelector("#acm-only").checked = false;
+  }
   render();
 });
 document.querySelector("#sort-select").addEventListener("change", (event) => {
@@ -684,7 +715,7 @@ document.querySelector("#sort-select").addEventListener("change", (event) => {
 
 const themeToggle = document.querySelector("#theme-toggle");
 const savedTheme = localStorage.getItem("seeing-the-splat-theme");
-if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+document.documentElement.dataset.theme = savedTheme || "dark";
 themeToggle.addEventListener("click", () => {
   const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   document.documentElement.dataset.theme = next;

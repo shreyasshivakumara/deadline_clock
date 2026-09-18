@@ -9,23 +9,18 @@
 </head>
 <body>
   <header class="clock-nav">
-    <a class="clock-brand" href="./">
-      <span class="brand-shape"><i></i><i></i><i></i></span>
-      <span><strong>Deadline Clock</strong><small>Conference deadlines</small></span>
-    </a>
     <button id="theme-toggle" type="button" aria-label="Toggle color theme">◐</button>
   </header>
 
   <main>
     <section class="masthead">
       <div class="edition">
-        <span>VOL. I · CONFERENCE EDITION</span>
-        <span class="live"><i></i> TICKING LIVE</span>
+        <span>2027 CONFERENCE TRACKER</span>
+        <span class="live"><i></i> LIVE COUNTDOWNS</span>
         <time id="utc-clock">Loading UTC...</time>
       </div>
       <div class="masthead-grid">
         <div>
-          <p class="kicker">Plan the paper before the deadline plans it for you.</p>
           <h1>Deadline<br><em>Clock.</em></h1>
         </div>
         <div class="masthead-copy">
@@ -33,12 +28,7 @@
           <p class="source-note"><strong>Data checked September 18, 2026.</strong> Confirmed dates come from official conference pages. Estimates are visibly marked and should never replace the official call.</p>
         </div>
       </div>
-      <div class="topic-marquee" aria-label="Topics covered">
-        <span>Rendering</span><i>·</i><span>Geometry</span><i>·</i><span>Animation</span><i>·</i><span>Visualization</span><i>·</i><span>XR</span><i>·</i><span>3D Vision</span><i>·</i><span>Graphics Systems</span>
-      </div>
     </section>
-
-    <section class="next-up" id="next-up" aria-live="polite"></section>
 
     <section class="controls" aria-label="Conference filters">
       <label class="deadline-search">
@@ -47,17 +37,17 @@
       </label>
       <div class="filter-row" id="category-filters">
         <button class="selected" type="button" data-filter="all">All</button>
-        <button type="button" data-filter="graphics">Core graphics</button>
-        <button type="button" data-filter="vision">Vision + 3D</button>
+        <button type="button" data-filter="graphics">Computer graphics</button>
+        <button type="button" data-filter="vision">Vision</button>
         <button type="button" data-filter="xr">XR + HCI</button>
         <button type="button" data-filter="visualization">Visualization</button>
-        <button type="button" data-filter="geometry">Geometry + animation</button>
       </div>
       <div class="control-meta">
         <label><input id="show-tba" type="checkbox" checked> Show TBA</label>
         <label><input id="show-estimated" type="checkbox" checked> Show estimates</label>
         <label><input id="show-passed" type="checkbox"> Show passed</label>
         <label><input id="acm-only" type="checkbox"> ACM only</label>
+        <label><input id="ieee-only" type="checkbox"> IEEE only</label>
         <label>Sort
           <select id="sort-select">
             <option value="deadline">deadline ↑</option>
@@ -82,7 +72,10 @@
 
   <footer>
     <div><strong>Deadline Clock</strong><p>Built for research planning. Not affiliated with listed conferences.</p></div>
-    <p>Always verify against the official CFP before submitting.</p>
+    <div class="footer-credit">
+      <p>Interface inspired by <a href="https://trybibby.com/conference-deadlines/ai" target="_blank" rel="noopener noreferrer">The AI Clock by Bibby</a>.</p>
+      <p>Always verify against the official CFP before submitting.</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
