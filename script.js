@@ -572,6 +572,7 @@ const conferences = [
 ];
 
 const sourceStatusUrl = "source-status.json";
+let sourceScanLabel = "5 Oct 2026";
 
 const state = {
   category: "all",
@@ -642,7 +643,7 @@ function cardMarkup(item) {
       </dl>
       <div class="card-footer">
         <a class="source-link" href="${item.url}" target="_blank" rel="noopener noreferrer">official page ↗</a>
-        <span class="verified">checked 18 Sep 2026</span>
+        <span class="verified">checked ${sourceScanLabel}</span>
       </div>
     </article>`;
 }
@@ -769,6 +770,15 @@ async function updateSourceScanDate() {
       dateStyle: "long",
       timeZone: "UTC"
     }).format(date);
+    sourceScanLabel = new Intl.DateTimeFormat("en", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+      timeZone: "UTC"
+    }).format(date);
+    document.querySelectorAll(".verified").forEach((label) => {
+      label.textContent = `checked ${sourceScanLabel}`;
+    });
   } catch (error) {
     console.warn("Could not update the source-scan date:", error);
   }
