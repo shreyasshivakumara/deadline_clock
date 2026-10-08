@@ -90,6 +90,21 @@ const conferences = [
     url: "https://ieeevr.org/2027/"
   },
   {
+    name: "IEEE AIxVR 2027",
+    fullName: "9th IEEE International Conference on Artificial Intelligence and eXtended and Virtual Reality",
+    category: "xr",
+    field: "AI + extended reality",
+    tags: ["IEEE", "AI", "XR", "VR"],
+    deadline: "2026-10-30T11:59:00Z",
+    deadlineLabel: "Work-in-progress / demo paper",
+    deadlineDisplay: "Oct 29, 2026 · 11:59 PM AoE",
+    timezone: "AoE (UTC-12)",
+    event: "January 25-27, 2027",
+    location: "Vancouver, Canada",
+    status: "confirmed",
+    url: "https://aivr.science.uu.nl/2027/"
+  },
+  {
     name: "I3D 2027",
     fullName: "ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games",
     category: "graphics",
@@ -189,10 +204,10 @@ const conferences = [
     deadlineLabel: "Full paper",
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "May 31-June 4, 2027",
+    location: "Stuttgart, Germany",
     status: "tba",
-    url: "https://www.eurovis.org/"
+    url: "https://eurovis27.github.io/web/"
   },
   {
     name: "IEEE VIS 2027",
