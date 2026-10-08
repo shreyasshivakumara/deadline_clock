@@ -245,14 +245,14 @@ const conferences = [
     category: "vision",
     field: "3D vision + reconstruction",
     tags: ["IEEE", "3D", "CV"],
-    deadline: null,
+    deadline: "2026-08-29T11:59:00Z",
     deadlineLabel: "Full paper",
-    deadlineDisplay: "Not announced",
-    timezone: "To be announced",
-    event: "2027 dates not announced",
-    location: "To be announced",
-    status: "tba",
-    url: "https://3dvconf.github.io/"
+    deadlineDisplay: "Aug 28, 2026 · 11:59 PM AoE",
+    timezone: "AoE (UTC-12)",
+    event: "April 6-9, 2027",
+    location: "Thessaloniki, Greece",
+    status: "confirmed",
+    url: "https://3dvconf.github.io/2027/"
   },
   {
     name: "MIG 2027",
