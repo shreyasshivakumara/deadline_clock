@@ -4,7 +4,7 @@ const conferences = [
     fullName: "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
     category: "vision",
     field: "Computer vision",
-    tags: ["IEEE", "CV", "3D", "A*"],
+    tags: ["IEEE", "CV", "3D"],
     deadline: "2026-11-17T11:59:00Z",
     deadlineLabel: "Full paper",
     deadlineDisplay: "Nov 16, 2026 · 11:59 PM AoE",
@@ -19,7 +19,7 @@ const conferences = [
     fullName: "ACM SIGGRAPH Technical Papers",
     category: "graphics",
     field: "Core computer graphics",
-    tags: ["ACM", "GFX", "A*"],
+    tags: ["ACM", "GFX"],
     deadline: null,
     deadlineLabel: "Technical paper",
     deadlineDisplay: "Not announced",
@@ -34,7 +34,7 @@ const conferences = [
     fullName: "IEEE/CVF International Conference on Computer Vision",
     category: "vision",
     field: "Computer vision",
-    tags: ["IEEE", "CV", "3D", "A*"],
+    tags: ["IEEE", "CV", "3D"],
     deadline: null,
     deadlineLabel: "Full paper",
     deadlineDisplay: "Not announced",
@@ -184,7 +184,7 @@ const conferences = [
     fullName: "ACM SIGGRAPH Conference and Exhibition on Computer Graphics in Asia",
     category: "graphics",
     field: "Core computer graphics",
-    tags: ["ACM", "GFX", "A*"],
+    tags: ["ACM", "GFX"],
     deadline: null,
     deadlineLabel: "Technical paper",
     deadlineDisplay: "Not announced",
@@ -528,6 +528,7 @@ const conferences = [
 
 const sourceStatusUrl = "source-status.json";
 let sourceScanLabel = "pending";
+const categoryPriority = ["visualization", "vision", "graphics", "xr"];
 
 const state = {
   category: "all",
@@ -537,7 +538,7 @@ const state = {
   showPassed: false,
   acmOnly: false,
   ieeeOnly: false,
-  sort: "deadline"
+  sort: "focus"
 };
 
 const grid = document.querySelector("#deadline-grid");
@@ -617,6 +618,10 @@ function filteredConferences() {
       if (state.sort === "name") return a.name.localeCompare(b.name);
       if (state.sort === "status") {
         return ["confirmed", "estimated", "tba"].indexOf(a.status) - ["confirmed", "estimated", "tba"].indexOf(b.status);
+      }
+      if (state.sort === "focus") {
+        const categoryDifference = categoryPriority.indexOf(a.category) - categoryPriority.indexOf(b.category);
+        if (categoryDifference) return categoryDifference;
       }
       if (!a.deadline && !b.deadline) return a.name.localeCompare(b.name);
       if (!a.deadline) return 1;

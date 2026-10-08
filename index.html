@@ -24,7 +24,7 @@
           <h1>Deadline<br><em>Clock.</em></h1>
         </div>
         <div class="masthead-copy">
-          <p>Live countdowns for computer graphics, rendering, geometry, visualization, XR, and graphics-adjacent vision conferences in 2027.</p>
+          <p>Live countdowns prioritizing visualization and computer vision, followed by computer graphics, rendering, geometry, XR, and HCI conferences in 2027.</p>
           <p class="source-note"><strong>Automated sources last scanned <time id="source-scan-date">loading...</time>.</strong> Deadline changes are reviewed manually before publication. Confirmed dates come from official conference pages; estimates are visibly marked and should never replace the official call.</p>
         </div>
       </div>
@@ -37,10 +37,10 @@
       </label>
       <div class="filter-row" id="category-filters">
         <button class="selected" type="button" data-filter="all">All</button>
-        <button type="button" data-filter="graphics">Computer graphics</button>
-        <button type="button" data-filter="vision">Vision</button>
-        <button type="button" data-filter="xr">XR + HCI</button>
         <button type="button" data-filter="visualization">Visualization</button>
+        <button type="button" data-filter="vision">Computer vision</button>
+        <button type="button" data-filter="graphics">Computer graphics</button>
+        <button type="button" data-filter="xr">XR + HCI</button>
       </div>
       <div class="control-meta">
         <label><input id="show-tba" type="checkbox" checked> Show TBA</label>
@@ -50,6 +50,7 @@
         <label><input id="ieee-only" type="checkbox"> IEEE only</label>
         <label>Sort
           <select id="sort-select">
+            <option value="focus">visualization first</option>
             <option value="deadline">deadline ↑</option>
             <option value="name">name A-Z</option>
             <option value="status">confirmed first</option>
