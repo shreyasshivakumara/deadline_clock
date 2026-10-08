@@ -556,6 +556,9 @@ const conferences = [
   }
 ];
 
+const sourceCheckRunsUrl =
+  "https://api.github.com/repos/shreyasshivakumara/deadline_clock/actions/workflows/weekly-source-check.yml/runs?status=success&per_page=1";
+
 const state = {
   category: "all",
   search: "",
@@ -734,6 +737,32 @@ function updateClock() {
   updateCountdowns();
 }
 
+async function updateSourceScanDate() {
+  const element = document.querySelector("#source-scan-date");
+  if (!element) return;
+
+  try {
+    const response = await fetch(sourceCheckRunsUrl, {
+      headers: { Accept: "application/vnd.github+json" }
+    });
+    if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+
+    const data = await response.json();
+    const startedAt = data.workflow_runs?.[0]?.run_started_at;
+    if (!startedAt) throw new Error("No successful source-check run found");
+
+    const date = new Date(startedAt);
+    element.dateTime = date.toISOString();
+    element.textContent = new Intl.DateTimeFormat("en", {
+      dateStyle: "long",
+      timeZone: "UTC"
+    }).format(date);
+  } catch (error) {
+    console.warn("Could not update the source-scan date:", error);
+  }
+}
+
 render();
 updateClock();
+updateSourceScanDate();
 setInterval(updateClock, 1000);
