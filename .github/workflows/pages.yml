@@ -29,6 +29,19 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Record latest successful source scan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          checked_at=$(gh api --method GET \
+            "repos/${{ github.repository }}/actions/workflows/weekly-source-check.yml/runs" \
+            -f status=success \
+            -f per_page=1 \
+            --jq '.workflow_runs[0].run_started_at')
+          if [ -n "$checked_at" ]; then
+            printf '{\n  "lastSuccessfulScan": "%s"\n}\n' "$checked_at" > source-status.json
+          fi
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:

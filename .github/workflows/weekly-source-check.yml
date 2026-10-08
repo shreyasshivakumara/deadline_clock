@@ -8,9 +8,18 @@ on:
 permissions:
   contents: read
   issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   check-deadline-sources:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -58,3 +67,20 @@ jobs:
         with:
           path: .cache/deadline-clock/source-state.json
           key: deadline-clock-${{ runner.os }}-${{ github.run_id }}
+
+      - name: Record successful source scan
+        run: |
+          printf '{\n  "lastSuccessfulScan": "%s"\n}\n' \
+            "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" > source-status.json
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+
+      - name: Deploy updated source status
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -556,8 +556,7 @@ const conferences = [
   }
 ];
 
-const sourceCheckRunsUrl =
-  "https://api.github.com/repos/shreyasshivakumara/deadline_clock/actions/workflows/weekly-source-check.yml/runs?status=success&per_page=1";
+const sourceStatusUrl = "source-status.json";
 
 const state = {
   category: "all",
@@ -742,13 +741,11 @@ async function updateSourceScanDate() {
   if (!element) return;
 
   try {
-    const response = await fetch(sourceCheckRunsUrl, {
-      headers: { Accept: "application/vnd.github+json" }
-    });
-    if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+    const response = await fetch(sourceStatusUrl, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Source status returned ${response.status}`);
 
     const data = await response.json();
-    const startedAt = data.workflow_runs?.[0]?.run_started_at;
+    const startedAt = data.lastSuccessfulScan;
     if (!startedAt) throw new Error("No successful source-check run found");
 
     const date = new Date(startedAt);
