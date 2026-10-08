@@ -9,7 +9,7 @@ const conferences = [
     deadlineLabel: "Full paper",
     deadlineDisplay: "Nov 16, 2026 · 11:59 PM AoE",
     timezone: "AoE (UTC-12)",
-    event: "June 20-24, 2027",
+    event: "June 20-25, 2027",
     location: "Seattle, Washington, USA",
     status: "confirmed",
     url: "https://cvpr.thecvf.com/Conferences/2027/Dates"
@@ -20,13 +20,13 @@ const conferences = [
     category: "graphics",
     field: "Core computer graphics",
     tags: ["ACM", "GFX", "A*"],
-    deadline: "2027-01-21T22:00:00Z",
-    deadlineLabel: "Stage 1 paper",
-    deadlineDisplay: "Jan 21, 2027 · 10:00 PM UTC",
-    timezone: "UTC",
-    event: "August 2027",
-    location: "To be announced",
-    status: "confirmed",
+    deadline: null,
+    deadlineLabel: "Technical paper",
+    deadlineDisplay: "Not announced",
+    timezone: "To be announced",
+    event: "August 8-12, 2027",
+    location: "Anaheim, California, USA",
+    status: "tba",
     url: "https://s2027.siggraph.org/"
   },
   {
@@ -35,13 +35,13 @@ const conferences = [
     category: "vision",
     field: "Computer vision",
     tags: ["IEEE", "CV", "3D", "A*"],
-    deadline: "2027-03-06T07:59:00Z",
+    deadline: null,
     deadlineLabel: "Full paper",
-    deadlineDisplay: "Mar 5, 2027 · 11:59 PM Pacific",
-    timezone: "Pacific Time",
+    deadlineDisplay: "Not announced",
+    timezone: "To be announced",
     event: "October 2-8, 2027",
     location: "Hong Kong",
-    status: "estimated",
+    status: "tba",
     url: "https://iccv.thecvf.com/"
   },
   {
@@ -50,14 +50,14 @@ const conferences = [
     category: "vision",
     field: "Multimedia + graphics",
     tags: ["ACM", "MM", "CV"],
-    deadline: "2027-04-10T11:59:00Z",
+    deadline: null,
     deadlineLabel: "Full paper",
-    deadlineDisplay: "Apr 9, 2027 · 11:59 PM AoE",
-    timezone: "AoE (UTC-12)",
-    event: "October/November 2027",
-    location: "To be announced",
-    status: "estimated",
-    url: "https://www.acmmm.org/"
+    deadlineDisplay: "Not announced",
+    timezone: "To be announced",
+    event: "2027 dates not announced",
+    location: "Hong Kong",
+    status: "tba",
+    url: "https://2027.acmmm.org/"
   },
   {
     name: "Eurographics 2027",
@@ -80,14 +80,14 @@ const conferences = [
     category: "xr",
     field: "Virtual + augmented reality",
     tags: ["IEEE", "VR", "HCI"],
-    deadline: null,
-    deadlineLabel: "Journal / conference paper",
-    deadlineDisplay: "Not announced",
-    timezone: "To be announced",
+    deadline: "2026-12-08T11:59:59Z",
+    deadlineLabel: "Poster / research demo",
+    deadlineDisplay: "Dec 7, 2026 · 11:59 PM AoE",
+    timezone: "AoE (UTC-12)",
     event: "February 27-March 3, 2027",
     location: "Melbourne, Australia",
-    status: "tba",
-    url: "https://ieeevr.org/2027/"
+    status: "confirmed",
+    url: "https://ieeevr.org/2027/contribute/posters/"
   },
   {
     name: "IEEE AIxVR 2027",
@@ -129,10 +129,10 @@ const conferences = [
     deadlineLabel: "Research paper",
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "July 5-7, 2027",
+    location: "Lugano, Switzerland",
     status: "tba",
-    url: "https://www.eg.org/wp/event/egsr/"
+    url: "https://egsr2027.usi.ch/"
   },
   {
     name: "HPG 2027",
@@ -144,8 +144,8 @@ const conferences = [
     deadlineLabel: "Paper",
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "July 7-9, 2027",
+    location: "Lugano, Switzerland",
     status: "tba",
     url: "https://www.highperformancegraphics.org/"
   },
@@ -159,10 +159,10 @@ const conferences = [
     deadlineLabel: "Full paper",
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "June 21-25, 2027 (IGS window)",
+    location: "Singapore",
     status: "tba",
-    url: "https://geometryprocessing.org/"
+    url: "https://igs2027singapore.github.io/"
   },
   {
     name: "Pacific Graphics 2027",
@@ -175,9 +175,9 @@ const conferences = [
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
     event: "2027 dates not announced",
-    location: "Asia-Pacific region",
+    location: "To be announced",
     status: "tba",
-    url: "https://pg2024.hsu.edu.cn/previous.html"
+    url: "https://pacificgraphics2026.github.io/history.html"
   },
   {
     name: "SIGGRAPH Asia 2027",
@@ -189,7 +189,7 @@ const conferences = [
     deadlineLabel: "Technical paper",
     deadlineDisplay: "Not announced",
     timezone: "To be announced",
-    event: "Late 2027",
+    event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
     url: "https://asia.siggraph.org/"
@@ -234,10 +234,10 @@ const conferences = [
     deadlineLabel: "Journal / conference paper",
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "October 11-15, 2027 (provisional)",
+    location: "Kobe, Japan",
     status: "tba",
-    url: "https://www.ismar.net/"
+    url: "https://www.ismar.net/ismar_future"
   },
   {
     name: "3DV 2027",
@@ -267,22 +267,7 @@ const conferences = [
     event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
-    url: "https://migconf.github.io/"
-  },
-  {
-    name: "CASA 2027",
-    fullName: "Computer Animation and Social Agents",
-    category: "graphics",
-    field: "Computer animation",
-    tags: ["ANIM", "GFX"],
-    deadline: null,
-    deadlineLabel: "Full paper",
-    deadlineDisplay: "Not announced",
-    timezone: "To be announced",
-    event: "2027 dates not announced",
-    location: "To be announced",
-    status: "tba",
-    url: "https://computeranimation.org/"
+    url: "https://mig.siggraph.org/"
   },
   {
     name: "PacificVis 2027",
@@ -290,14 +275,14 @@ const conferences = [
     category: "visualization",
     field: "Visualization",
     tags: ["VIS", "IEEE"],
-    deadline: null,
-    deadlineLabel: "Full paper",
-    deadlineDisplay: "Not announced",
-    timezone: "To be announced",
-    event: "2027 dates not announced",
-    location: "Asia-Pacific region",
-    status: "tba",
-    url: "https://pacificvis.org/"
+    deadline: "2026-11-10T11:59:59Z",
+    deadlineLabel: "Conference paper",
+    deadlineDisplay: "Nov 9, 2026 · 11:59 PM AoE",
+    timezone: "AoE (UTC-12)",
+    event: "April 19-22, 2027",
+    location: "Busan, South Korea",
+    status: "confirmed",
+    url: "https://pacificvis2027.github.io/contribute/conference-papers/"
   },
   {
     name: "LDAV 2027",
@@ -315,21 +300,6 @@ const conferences = [
     url: "https://www.computer.org/csdl/proceedings/ldav"
   },
   {
-    name: "AVI 2027",
-    fullName: "International Conference on Advanced Visual Interfaces",
-    category: "visualization",
-    field: "Visual interfaces",
-    tags: ["ACM", "VIS", "HCI"],
-    deadline: null,
-    deadlineLabel: "Full paper",
-    deadlineDisplay: "Not announced",
-    timezone: "To be announced",
-    event: "2027 dates not announced",
-    location: "To be announced",
-    status: "tba",
-    url: "https://dl.acm.org/conference/avi"
-  },
-  {
     name: "VINCI 2027",
     fullName: "International Symposium on Visual Information Communication and Interaction",
     category: "visualization",
@@ -342,7 +312,7 @@ const conferences = [
     event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
-    url: "https://dl.acm.org/conference/vinci"
+    url: "https://vinci-symp.org/"
   },
   {
     name: "GD 2027",
@@ -354,10 +324,10 @@ const conferences = [
     deadlineLabel: "Abstract / paper",
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "September 15-17, 2027",
+    location: "Budapest, Hungary",
     status: "tba",
-    url: "https://graphdrawing.github.io/gd2026/"
+    url: "https://graphdrawing.github.io/gd2027/"
   },
   {
     name: "IV 2027",
@@ -369,10 +339,10 @@ const conferences = [
     deadlineLabel: "Paper",
     deadlineDisplay: "Not announced",
     timezone: "To be announced",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "July 28-31, 2027",
+    location: "Rome, Italy",
     status: "tba",
-    url: "https://www.graphicslink.co.uk/IV2026/"
+    url: "https://iv.csites.fct.unl.pt/"
   },
   {
     name: "ETRA 2027",
@@ -380,13 +350,13 @@ const conferences = [
     category: "visualization",
     field: "Visual perception + interaction",
     tags: ["ACM", "VIS", "HCI"],
-    deadline: null,
+    deadline: "2026-10-17T11:59:59Z",
     deadlineLabel: "Full paper",
-    deadlineDisplay: "Not announced",
-    timezone: "To be announced",
+    deadlineDisplay: "Oct 16, 2026 · 11:59 PM AoE",
+    timezone: "AoE (UTC-12)",
     event: "June 7-10, 2027",
     location: "Pamplona, Spain",
-    status: "tba",
+    status: "confirmed",
     url: "https://etra.acm.org/2027/"
   },
   {
@@ -402,7 +372,7 @@ const conferences = [
     event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
-    url: "https://dl.acm.org/conference/sca"
+    url: "https://computeranimation.org/"
   },
   {
     name: "SAP 2027",
@@ -429,7 +399,7 @@ const conferences = [
     deadlineLabel: "Full paper",
     deadlineDisplay: "Not announced",
     timezone: "Usually AoE",
-    event: "Typically October/November",
+    event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
     url: "https://vrst.acm.org/"
@@ -447,7 +417,7 @@ const conferences = [
     event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
-    url: "https://web3d.siggraph.org/"
+    url: "https://www.web3d.org/conferences"
   },
   {
     name: "SCF 2027",
@@ -462,7 +432,7 @@ const conferences = [
     event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
-    url: "https://dl.acm.org/conference/scf"
+    url: "https://scf.acm.org/"
   },
   {
     name: "SPM 2027",
@@ -474,25 +444,10 @@ const conferences = [
     deadlineLabel: "Paper",
     deadlineDisplay: "Not announced",
     timezone: "To be announced",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    event: "June 21-25, 2027 (IGS window)",
+    location: "Singapore",
     status: "tba",
-    url: "https://dl.acm.org/conference/spm"
-  },
-  {
-    name: "VRCAI 2027",
-    fullName: "ACM SIGGRAPH Conference on Virtual-Reality Continuum and its Applications in Industry",
-    category: "xr",
-    field: "Industrial XR",
-    tags: ["ACM", "XR"],
-    deadline: null,
-    deadlineLabel: "Full paper",
-    deadlineDisplay: "Not announced",
-    timezone: "To be announced",
-    event: "2027 dates not announced",
-    location: "To be announced",
-    status: "tba",
-    url: "https://dl.acm.org/conference/vrcai"
+    url: "https://igs2027singapore.github.io/"
   },
   {
     name: "ISS 2027",
@@ -507,7 +462,7 @@ const conferences = [
     event: "2027 dates not announced",
     location: "To be announced",
     status: "tba",
-    url: "https://dl.acm.org/conference/iss"
+    url: "https://iss.acm.org/"
   },
   {
     name: "ICMR 2027",
@@ -532,12 +487,12 @@ const conferences = [
     tags: ["ACM", "SYSTEMS"],
     deadline: null,
     deadlineLabel: "Full paper",
-    deadlineDisplay: "Not announced",
-    timezone: "Usually AoE",
-    event: "2027 dates not announced",
-    location: "To be announced",
+    deadlineDisplay: "Round 2: Nov 19, 2026 · time TBA",
+    timezone: "Time not stated",
+    event: "March 30-April 2, 2027",
+    location: "Ghent, Belgium",
     status: "tba",
-    url: "https://dl.acm.org/conference/mmsys"
+    url: "https://2027.acmmmsys.org/research-track.html"
   },
   {
     name: "QoMEX 2027",
@@ -549,7 +504,7 @@ const conferences = [
     deadlineLabel: "Full paper",
     deadlineDisplay: "Not announced",
     timezone: "To be announced",
-    event: "Early summer 2027",
+    event: "2027 exact dates not announced",
     location: "Shanghai, China",
     status: "tba",
     url: "https://qomex.org/"
@@ -572,7 +527,7 @@ const conferences = [
 ];
 
 const sourceStatusUrl = "source-status.json";
-let sourceScanLabel = "5 Oct 2026";
+let sourceScanLabel = "pending";
 
 const state = {
   category: "all",
