@@ -247,12 +247,15 @@ h1 em {
 .badge.confirmed { border-color: var(--accent); color: var(--accent); }
 .conference-name {
   margin: 1.1rem 0 .25rem;
+  min-height: 3.3rem;
+  display: flex;
+  align-items: flex-end;
   font-size: 1.65rem;
   line-height: 1;
   letter-spacing: -.035em;
 }
 .conference-full {
-  min-height: 2.8em;
+  min-height: 3.9em;
   margin: 0;
   color: var(--muted);
   font-size: .8rem;
@@ -356,6 +359,7 @@ footer p { margin: .2rem 0; }
   .controls { position: static; }
   .control-meta strong { width: 100%; margin-left: 0; }
   .deadline-grid { grid-template-columns: 1fr; }
+  .conference-name, .conference-full { min-height: 0; }
   footer { flex-direction: column; gap: 1rem; }
   .footer-credit { text-align: left; }
 }
